@@ -1,0 +1,116 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Motion Quiz</title>
+  <link rel="stylesheet" href="style.css">
+
+  <script>
+    if (localStorage.getItem('interfaceUnlocked') !== 'true') {
+      alert('You must complete the Interface Quiz with 100% accuracy before accessing this section.');
+      window.location.href = 'index.html';
+    }
+  </script>
+
+</head>
+<body>
+  <div class="container">
+    <img src="assets/afg-logo.png" alt="AFG Logo" class="logo">
+    <h1>Motion Quiz</h1>
+    <form id="motion-quiz">
+      <p>1. What happens if you remove the EtherCAT secros cable at a drive?</p>
+      <label><input type="radio" name="m1" value="a">The GUI freezes</label><br>
+      <label><input type="radio" name="m1" value="b">Nothing changes</label><br>
+      <label><input type="radio" name="m1" value="c">A communication fault occurs</label><br>
+      <label><input type="radio" name="m1" value="d">The system powers off</label><br>
+
+      <p>2. What software application is used to interface with motion system and view error codes?</p>
+      <label><input type="radio" name="m2" value="a">Launchpad</label><br>
+      <label><input type="radio" name="m2" value="b">jDFC</label><br>
+      <label><input type="radio" name="m2" value="c">MCLogic</label><br>
+      <label><input type="radio" name="m2" value="d">CTS+</label><br>
+
+      <p>3. What needs to be closed in order for motion to engage? (Select all that apply)</p>
+      <label><input type="checkbox" name="m3" value="a">Sim door closed</label><br>
+      <label><input type="checkbox" name="m3" value="b">Gate closed</label><br>
+      <label><input type="checkbox" name="m3" value="c">Control loading On</label><br>
+      <label><input type="checkbox" name="m3" value="d">Projectors On</label><br>
+      <label><input type="checkbox" name="m3" value="e">EMM Cabinet in maintenance mode</label><br>
+
+      <p>4. Class 2 Faults remove high power from the CSA drives.</p>
+      <label><input type="radio" name="m4" value="true">True</label><br>
+      <label><input type="radio" name="m4" value="false">False</label><br>
+
+      <p>5. Which access level is required to delete log files in the MOOG Gui?</p>
+      <label><input type="radio" name="m5" value="a">Operator</label><br>
+      <label><input type="radio" name="m5" value="b">Technician</label><br>
+      <label><input type="radio" name="m5" value="c">Engineer</label><br>
+      <label><input type="radio" name="m5" value="d">Administrator</label><br>
+
+      <p>6. What is the purpose of the “Ownership” function in the Moog GUI?</p>
+      <label><input type="radio" name="m6" value="a">Disable GUI for maintenance</label><br>
+      <label><input type="radio" name="m6" value="b">Allow write access for 1 user</label><br>
+      <label><input type="radio" name="m6" value="c">Change user passwords</label><br>
+      <label><input type="radio" name="m6" value="d">Reset log files</label><br>
+
+      <p>7. What does the Gas Spring Actuator assist with?</p>
+      <label><input type="radio" name="m7" value="a">Overcurrent detection</label><br>
+      <label><input type="radio" name="m7" value="b">Reduces mechanical load on linear actuator</label><br>
+      <label><input type="radio" name="m7" value="c">Controls RTH fallback</label><br>
+      <label><input type="radio" name="m7" value="d">Monitors position feedback</label><br>
+
+      <p>8. Drawbridge motor power switches to battery during power failure.</p>
+      <label><input type="radio" name="m8" value="true">True</label><br>
+      <label><input type="radio" name="m8" value="false">False</label><br>
+
+      <p>9. The manual drawbridge control panel has which buttons?</p>
+      <label><input type="radio" name="m9" value="a">START, RUN, STOP</label><br>
+      <label><input type="radio" name="m9" value="b">UP, STOP, DOWN</label><br>
+      <label><input type="radio" name="m9" value="c">LOAD, MOVE, RESET</label><br>
+      <label><input type="radio" name="m9" value="d">GO, HOLD, EXIT</label><br>
+
+      <p>10. How often should actuator motor oil be replaced?</p>
+      <label><input type="radio" name="m10" value="a">Every 6 months</label><br>
+      <label><input type="radio" name="m10" value="b">1000 operating hours</label><br>
+      <label><input type="radio" name="m10" value="c">Once a year or 5480 hours</label><br>
+      <label><input type="radio" name="m10" value="d">Monthly</label><br>
+
+      <p>11. What is the minimum separation between encoder and motor power cables?</p>
+      <label><input type="radio" name="m11" value="a">6 inches</label><br>
+      <label><input type="radio" name="m11" value="b">18 inches (0.5m)</label><br>
+      <label><input type="radio" name="m11" value="c">24 inches</label><br>
+      <label><input type="radio" name="m11" value="d">No specific requirement</label><br>
+
+      <p>12. Which tool is used to inspect the cooling fans in the cabinet?</p>
+      <label><input type="radio" name="m12" value="a">Air pressure tester</label><br>
+      <label><input type="radio" name="m12" value="b">Visual inspection and Moog GUI</label><br>
+      <label><input type="radio" name="m12" value="c">Fan speed analyzer</label><br>
+      <label><input type="radio" name="m12" value="d">Maintenance jumper</label><br>
+
+      <p>13. 9 filters are located in the Motion Cabinet doors and front panel.</p>
+      <label><input type="radio" name="m13" value="true">True</label><br>
+      <label><input type="radio" name="m13" value="false">False</label><br>
+
+      <p>14. During a Class 2 fault, what powers the motion actuators?</p>
+      <label><input type="radio" name="m14" value="a">Facility Power</label><br>
+      <label><input type="radio" name="m14" value="b">48VDC Battery Backup</label><br>
+      <label><input type="radio" name="m14" value="c">24VDC UPS</label><br>
+      <label><input type="radio" name="m14" value="d">PLC Output Relay</label><br>
+
+      <p>15. What fault appears if the 24V UPS (2G1) supply is lost?</p>
+      <label><input type="radio" name="m15" value="a">Class 2 fault</label><br>
+      <label><input type="radio" name="m15" value="b">Class 1 fault</label><br>
+      <label><input type="radio" name="m15" value="c">Warning only</label><br>
+      <label><input type="radio" name="m15" value="d">Emergency mode trigger</label><br>
+
+      <p>16. If the RTH timeout occurs without reaching home, what fault is generated?</p>
+      <label><input type="radio" name="m16" value="a">Fault 105</label><br>
+      <label><input type="radio" name="m16" value="b">Class 2 system fault</label><br>
+      <label><input type="radio" name="m16" value="c">Interlock inhibit</label><br>
+      <label><input type="radio" name="m16" value="d">Configuration error</label><br>
+    <button type="button" onclick="finishQuiz()">Finish Quiz</button>
+    </form>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

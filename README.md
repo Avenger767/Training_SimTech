@@ -1,1 +1,1 @@
-# Training_SimTech
+# SimTechQuiz2

@@ -1,0 +1,82 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Admin Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .drop-zone {
+      border: 2px dashed #0077cc;
+      padding: 40px;
+      text-align: center;
+      border-radius: 10px;
+      color: #555;
+      margin-bottom: 20px;
+      background: #f9f9f9;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+    th, td {
+      padding: 10px;
+      border: 1px solid #ccc;
+      font-size: 14px;
+    }
+    th {
+      background-color: #0077cc;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <img src="assets/afg-logo.png" alt="AFG Logo" class="logo">
+    <h1>Admin Dashboard</h1>
+    <div class="drop-zone" id="drop-zone">
+      Drag & drop CSV file here or click to upload
+      <input type="file" id="file-input" accept=".csv" style="display:none;" />
+    </div>
+    <table id="results-table">
+      <thead></thead>
+      <tbody></tbody>
+    </table>
+  </div>
+  <script>
+    const dropZone = document.getElementById('drop-zone');
+    const fileInput = document.getElementById('file-input');
+    const table = document.getElementById('results-table');
+    const reader = new FileReader();
+
+    dropZone.addEventListener('click', () => fileInput.click());
+    dropZone.addEventListener('dragover', e => {
+      e.preventDefault();
+      dropZone.style.backgroundColor = '#e0f0ff';
+    });
+    dropZone.addEventListener('dragleave', () => dropZone.style.backgroundColor = '#f9f9f9');
+    dropZone.addEventListener('drop', e => {
+      e.preventDefault();
+      dropZone.style.backgroundColor = '#f9f9f9';
+      const file = e.dataTransfer.files[0];
+      if (file) reader.readAsText(file);
+    });
+    fileInput.addEventListener('change', () => {
+      if (fileInput.files[0]) reader.readAsText(fileInput.files[0]);
+    });
+
+    reader.onload = function () {
+      const rows = reader.result.split('\n').filter(row => row.trim() !== '');
+      const headers = rows.shift().split(',');
+      renderTable(headers, rows);
+    };
+
+    function renderTable(headers, rows) {
+      table.querySelector('thead').innerHTML = '<tr>' + headers.map(h => `<th>${h}</th>`).join('') + '</tr>';
+      table.querySelector('tbody').innerHTML = rows.map(row =>
+        '<tr>' + row.split(',').map(cell => `<td>${cell}</td>`).join('') + '</tr>'
+      ).join('');
+    }
+  </script>
+</body>
+</html>

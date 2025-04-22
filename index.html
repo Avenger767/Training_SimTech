@@ -1,1 +1,28 @@
-<!DOCTYPE html><html><head><title>Sim Tech Training Guide</title></head><body><h1>Placeholder Final Site</h1></body></html>
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>The Sim Tech Quizlet</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <img src="assets/afg-logo.png" alt="AFG Logo" class="logo">
+    <h1>The Sim Tech Quizlet</h1>
+    <p>Please enter your name:</p>
+    <input type="text" id="username" placeholder="Enter name">
+    <button onclick="window.location.href='module.html'">Start</button>
+  </div>
+  <script>
+    function window.location.href='module.html' {
+      const name = document.getElementById('username').value;
+      if (name.trim() !== '') {
+        localStorage.setItem('quizUser', name);
+        window.location.href = 'mpic.html';
+      } else {
+        alert('Please enter your name.');
+      }
+    }
+  </script>
+</body>
+</html>

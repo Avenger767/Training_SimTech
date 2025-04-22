@@ -1,0 +1,57 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Quiz Results</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .score {
+      font-size: 28px;
+      font-weight: bold;
+      color: #0077cc;
+      margin-top: 20px;
+      text-align: center;
+    }
+    .summary {
+      font-size: 18px;
+      margin-top: 15px;
+      text-align: center;
+      color: #444;
+    }
+    .complete {
+      text-align: center;
+      margin-top: 30px;
+      font-size: 16px;
+      color: #666;
+    }
+    .btns {
+      text-align: center;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <img src="assets/afg-logo.png" alt="AFG Logo" class="logo">
+    <h1>Training Quiz Completed</h1>
+    <div class="score" id="score">Loading your score...</div>
+    <div class="summary" id="summary"></div>
+    <div class="complete">Your answers have been saved. Great work!</div>
+    <div class="btns">
+      <button onclick="window.location.href='index.html'">Return to Start</button>
+      <button onclick="window.location.href='admin.html'">Go to Admin Dashboard</button>
+    </div>
+  </div>
+  <script>
+    window.onload = function () {
+      const username = localStorage.getItem('quizUser') || 'Anonymous';
+      const score = localStorage.getItem('lastScore');
+      const total = localStorage.getItem('lastTotal');
+      document.getElementById('score').innerText = score && total
+        ? `Score: ${score} / ${total}`
+        : 'Score not available. Please complete the quiz.';
+      document.getElementById('summary').innerText = `Thank you, ${username}, for completing the quiz.`;
+    }
+  </script>
+</body>
+</html>

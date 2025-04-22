@@ -1,0 +1,66 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Quiz Summary</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .summary-container {
+      text-align: center;
+      margin-top: 40px;
+    }
+    .summary-container h2 {
+      margin-bottom: 10px;
+      color: #0077cc;
+    }
+    .summary-container p {
+      font-size: 18px;
+      margin: 8px 0;
+    }
+    .score-summary {
+      font-size: 22px;
+      font-weight: bold;
+      margin-top: 20px;
+      color: #333;
+    }
+    .btns {
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <img src="assets/afg-logo.png" alt="AFG Logo" class="logo">
+    <h1>Training Quiz Summary</h1>
+    <div class="summary-container">
+      <h2>User: <span id="username"></span></h2>
+      <p>Interface Quiz Score: <span id="interfaceScore"></span></p>
+      <p>Motion Quiz Score: <span id="motionScore"></span></p>
+      <div class="score-summary" id="totalSummary"></div>
+    </div>
+    <div class="btns">
+      <button onclick="window.location.href='index.html'">Return to Start</button>
+      <button onclick="window.location.href='admin.html'">Go to Admin Dashboard</button>
+    </div>
+  </div>
+  <script>
+    const username = localStorage.getItem('quizUser') || 'Anonymous';
+    const interfaceScore = localStorage.getItem('interfaceScore') || 'N/A';
+    const interfaceTotal = localStorage.getItem('interfaceTotal') || 'N/A';
+    const motionScore = localStorage.getItem('motionScore') || 'N/A';
+    const motionTotal = localStorage.getItem('motionTotal') || 'N/A';
+
+    document.getElementById('username').innerText = username;
+    document.getElementById('interfaceScore').innerText = `${interfaceScore} / ${interfaceTotal}`;
+    document.getElementById('motionScore').innerText = `${motionScore} / ${motionTotal}`;
+
+    const total =
+      (parseInt(interfaceScore) || 0) + (parseInt(motionScore) || 0);
+    const max =
+      (parseInt(interfaceTotal) || 0) + (parseInt(motionTotal) || 0);
+
+    document.getElementById('totalSummary').innerText =
+      `Total Score: ${total} / ${max}`;
+  </script>
+</body>
+</html>

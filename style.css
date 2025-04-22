@@ -1,0 +1,62 @@
+
+@keyframes fadeInUp {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #f0f4f8, #d9e2ec);
+  margin: 0;
+  padding: 0;
+  animation: fadeInUp 0.8s ease-in-out;
+}
+.container {
+  max-width: 800px;
+  margin: 40px auto;
+  background: white;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  animation: fadeInUp 1s ease-in-out;
+}
+h1 {
+  text-align: center;
+  color: #333;
+  animation: fadeInUp 1.2s ease-in-out;
+}
+.logo {
+  display: block;
+  margin: 0 auto 20px;
+  max-width: 180px;
+}
+p {
+  font-weight: bold;
+  color: #444;
+}
+input[type="radio"], input[type="checkbox"] {
+  margin-right: 8px;
+}
+button {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 12px 25px;
+  font-size: 16px;
+  background-color: #0077cc;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  animation: fadeInUp 1.4s ease-in-out;
+}
+button:hover {
+  background-color: #005fa3;
+}
+input[type="text"], textarea {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  margin-top: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
